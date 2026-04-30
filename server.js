@@ -1,0 +1,51 @@
+const express = require('express');
+const cors = require('cors');
+const sql = require('mssql');
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+// MS SQL Veritabanı Bağlantı Ayarları
+const config = {
+    user: 'sa', // SQL Server kullanıcı adın (Varsayılan: sa)
+    password: '123456', // SQL Server şifreni buraya yaz
+    server: 'localhost', // Kendi bilgisayarında çalıştığı için localhost
+    database: 'db_LojistikOtomasyon',
+    options: {
+        encrypt: false, // Yerel bağlantı olduğu için şifrelemeye gerek yok
+        trustServerCertificate: true
+    }
+};
+
+// Veritabanına Bağlanma İşlemi
+sql.connect(config).then(pool => {
+    if(pool.connected) {
+        console.log("Mükemmel! MS SQL veritabanına başarıyla bağlandık.");
+    }
+}).catch(err => {
+    console.error("Veritabanı bağlantı hatası:", err.message);
+});
+
+// TEST: Ana Sayfaya girildiğinde çalışacak kısım
+app.get('/', (req, res) => {
+    res.send('Lojistik Otomasyonu API Sunucusu Çalışıyor!');
+});
+
+// API: Kargo Takip Listesini Veritabanından Çekip HTML'e Gönderecek Kısım
+app.get('/api/kargolar', async (req, res) => {
+    try {
+        // MS SQL'de yazdığımız o View (Sanal Tablo) yapısından verileri çekiyoruz
+        const result = await sql.query('SELECT * FROM vw_KargoTakipListesi');
+        res.json(result.recordset); // Verileri JSON formatında (web'in anladığı dil) gönder
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Veritabanından veriler çekilirken bir hata oluştu.');
+    }
+});
+
+// Sunucuyu 3000 portunda ayağa kaldır
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Garsonumuz hazır! Sunucu http://localhost:${PORT} adresinde dinliyor.`);
+});
