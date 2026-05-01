@@ -55,6 +55,26 @@ app.get('/api/seferler', async (req, res) => {
     }
 });
 
+// Kargo durumunu güncelleyen (Stored Procedure çalıştıran) API
+app.post('/api/kargo-guncelle', async (req, res) => {
+    try {
+        const { takipNo, yeniDurum } = req.body; // Tarayıcıdan gelen bilgileri alıyoruz
+        
+        const havuz = await sql.connect(config);
+        
+        // sp_KargoDurumGuncelle adlı Stored Procedure'ü çalıştırıyoruz
+        await havuz.request()
+            .input('TakipNo', sql.NVarChar(20), takipNo)
+            .input('YeniDurum', sql.NVarChar(20), yeniDurum)
+            .execute('sp_KargoDurumGuncelle'); 
+            
+        res.json({ basari: true, mesaj: 'Kargo durumu başarıyla güncellendi!' });
+    } catch (hata) {
+        console.error("Güncelleme hatası:", hata);
+        res.status(500).json({ basari: false, mesaj: 'Veritabanı hatası: ' + hata.message });
+    }
+});
+
 // Sunucuyu 3000 portunda ayağa kaldır
 const PORT = 3000;
 app.listen(PORT, () => {

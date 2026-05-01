@@ -43,7 +43,7 @@ async function kargolariGetir() {
     }
 }
 
-// --- YENİ EKLENEN KISIM: Seferleri Getirme Fonksiyonu ---
+// --- Seferleri Getirme Fonksiyonu ---
 async function seferleriGetir() {
     try {
         const response = await fetch('http://localhost:3000/api/seferler');
@@ -53,7 +53,6 @@ async function seferleriGetir() {
         tabloGovdesi.innerHTML = ''; 
 
         seferler.forEach(sefer => {
-            // SQL'den gelen karmaşık tarihi Türkiye saatine/formatına çeviriyoruz
             const tarih = new Date(sefer.CikisTarihi).toLocaleString('tr-TR');
 
             const satir = `
@@ -76,6 +75,33 @@ async function seferleriGetir() {
     }
 }
 
+// Butona basıldığında çalışacak fonksiyon
+async function durumDegistir(takipNo) {
+    // Kullanıcıya yeni durumu soruyoruz (Basit bir popup ile)
+    const yeniDurum = prompt(`${takipNo} numaralı kargo için YENİ DURUMU yazın:\n(Örn: Yolda, Teslim Edildi, Dağıtıma Çıktı, İade Edildi, Depoda Bekliyor)`);
+    
+    if (yeniDurum) { // Eğer iptale basmadıysa ve bir şey yazdıysa
+        try {
+            // Node.js'e (garsona) POST isteği atıyoruz
+            const response = await fetch('http://localhost:3000/api/kargo-guncelle', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ takipNo: takipNo, yeniDurum: yeniDurum }) // Verileri JSON olarak paketledik
+            });
+            
+            const sonuc = await response.json();
+            
+            if (sonuc.basari) {
+                alert("Başarılı: " + sonuc.mesaj);
+                kargolariGetir(); // Tabloyu ekranda anında güncellemek için verileri baştan çekiyoruz
+            } else {
+                alert("Hata: " + sonuc.mesaj);
+            }
+        } catch (error) {
+            alert("Sunucuya bağlanırken bir hata oluştu!");
+        }
+    }
+}
 
 window.onload = () => {
     // Eğer sayfada kargoGovdesi varsa (kargolar.html sayfasındaysak)
