@@ -7,10 +7,9 @@ Günümüzde lojistik firmalarının kargo kabul, araç atama ve sefer takip sü
 ## 2. Yapılan Araştırmalar
 Proje geliştirme aşamasında, veri tekrarını önlemek ve tutarlılığı sağlamak amacıyla veritabanı normalizasyon kuralları (5N) üzerine araştırmalar yapılmıştır[cite: 1]. MS SQL Server üzerinde performanslı veri çekimi için "View" ve "Index" yapıları incelenmiş; veri manipülasyonlarını güvenli hale getirmek için "Stored Procedure" ve otomatik loglama süreçleri için "Trigger" yapılarının entegrasyonu sağlanmıştır[cite: 1]. Ayrıca, veritabanının modern bir web arayüzü ile haberleşebilmesi için Node.js ve Fetch API teknolojilerinin kullanımı araştırılmıştır.
 
+
 ## 3. Akış Şeması
-## 3. Akış Şeması
-![Akış Şeması](<img width="372" height="1901" alt="akis_semasi" src="https://github.com/user-attachments/assets/420337c3-f848-4b7a-9c22-e38597a9e039" />
-)
+![Akış Şeması](https://github.com/user-attachments/assets/181a22dc-f6c5-44c4-9e67-f186ceb1b54e)
 
 ## 4. Yazılım Mimarisi
 Proje, üç katmanlı bir mimari (Client-Server-Database) üzerine inşa edilmiştir[cite: 1]:
