@@ -1,24 +1,20 @@
 // Arka Uç (Node.js) sunucumuzdan verileri çeken asıl fonksiyon
 async function kargolariGetir() {
     try {
-        // Node.js sunucumuza (garsona) bağlanıp verileri istiyoruz
         const response = await fetch('http://localhost:3000/api/kargolar');
-        const kargolar = await response.json(); // Gelen JSON'u JavaScript dizisine çeviriyoruz
+        const kargolar = await response.json(); 
         
-        // HTML'deki tablo gövdesini (kargoGovdesi) buluyoruz
         const tabloGovdesi = document.getElementById('kargoGovdesi');
-        tabloGovdesi.innerHTML = ''; // İçindeki "Yükleniyor..." yazısını siliyoruz
+        tabloGovdesi.innerHTML = ''; 
 
-        // Gelen her bir kargo verisi için sırayla HTML satırı (tr) oluşturuyoruz
         kargolar.forEach(kargo => {
-            // Duruma göre CSS rengini (class'ını) belirliyoruz
-            let durumClass = 'durum-depo'; // Varsayılan gri
+            let durumClass = 'durum-depo'; 
             if (kargo.Durum === 'Yolda') durumClass = 'durum-yolda';
             else if (kargo.Durum === 'Teslim Edildi') durumClass = 'durum-teslim';
             else if (kargo.Durum === 'Dağıtıma Çıktı' || kargo.Durum === 'Dagitima Çikti') durumClass = 'durum-dagitim';
             else if (kargo.Durum === 'İade Edildi' || kargo.Durum === 'Iade Edildi') durumClass = 'durum-iade';
 
-            // Tablo satırını oluşturuyoruz
+            // İŞTE EKSİK OLAN 6. SATIR (BUTON) BURADA!
             const satir = `
                 <tr>
                     <td><strong>${kargo.KargoTakipNo}</strong></td>
@@ -26,16 +22,19 @@ async function kargolariGetir() {
                     <td>${kargo.Telefon}</td>
                     <td>${kargo.AgirlikKg} kg</td>
                     <td><span class="badge ${durumClass}">${kargo.Durum}</span></td>
+                    <td>
+                        <button onclick="durumDegistir('${kargo.KargoTakipNo}')" style="padding: 5px 12px; background-color: #243b53; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8rem; font-weight: bold;">Güncelle</button>
+                    </td>
                 </tr>
             `;
-            // Oluşturulan satırı tabloya ekliyoruz
+            
             tabloGovdesi.innerHTML += satir; 
         });
     } catch (error) {
         console.error('Veri çekme hatası:', error);
         document.getElementById('kargoGovdesi').innerHTML = `
             <tr>
-                <td colspan="5" style="text-align: center; color: #991b1b; font-weight: bold;">
+                <td colspan="6" style="text-align: center; color: #991b1b; font-weight: bold;">
                     Sunucuya bağlanılamadı! Lütfen VS Code terminalinde "node server.js" komutunun çalıştığından emin olun.
                 </td>
             </tr>
