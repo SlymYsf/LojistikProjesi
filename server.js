@@ -44,6 +44,17 @@ app.get('/api/kargolar', async (req, res) => {
     }
 });
 
+// Araç Seferlerini (vw_AracSeferListesi) getiren yeni API rotamız
+app.get('/api/seferler', async (req, res) => {
+    try {
+        const havuz = await sql.connect(config);
+        const sonuc = await havuz.request().query('SELECT * FROM vw_AracSeferListesi');
+        res.json(sonuc.recordset);
+    } catch (hata) {
+        res.status(500).send('Veritabanı hatası: ' + hata.message);
+    }
+});
+
 // Sunucuyu 3000 portunda ayağa kaldır
 const PORT = 3000;
 app.listen(PORT, () => {

@@ -1,7 +1,153 @@
-/* Sayfa tasarımlarımız buraya gelecek */
-body {
-    background-color: #f8f9fa;
-    font-family: sans-serif;
-    margin: 0;
-    padding: 20px;
+/* Genel Sayfa Ayarları */
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background-color: #f0f4f8; /* Çok açık, ferah bir mavi-gri */
+    margin: 0; 
+    padding: 40px 20px; 
+    color: #333;
+}
+
+/* İçeriği Ortalayan Taşıyıcı Kutu */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Başlık Tasarımı */
+h1 { 
+    text-align: center; 
+    color: #102a43; 
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+/* Tablonun Etrafındaki Şık Kart Yapısı */
+.table-wrapper {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08); /* Havada duruyormuş hissi veren gölge */
+    overflow: hidden;
+}
+
+/* Tablo Temel Ayarları */
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    text-align: left; 
+}
+
+/* Hücre Boşlukları ve Çizgiler */
+th, td { 
+    padding: 16px 20px; 
+    border-bottom: 1px solid #e1e8ed; 
+}
+
+/* Tablo Başlıkları (Koyu Kısım) */
+th { 
+    background-color: #243b53; 
+    color: white; 
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+/* Satırların Üzerine Gelince Hafifçe Renk Değiştirmesi */
+tr:hover { 
+    background-color: #f8fbff; 
+    transition: background-color 0.3s ease;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Kargo Durum Etiketleri (Hap Şeklinde) */
+.badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: inline-block;
+    letter-spacing: 0.3px;
+}
+
+/* Durumlara Göre Otomatik Renklenen Sınıflar */
+.durum-yolda { background-color: #fef3c7; color: #92400e; }       /* Sarı/Turuncu */
+.durum-teslim { background-color: #d1fae5; color: #065f46; }      /* Yeşil */
+.durum-depo { background-color: #e2e8f0; color: #334155; }        /* Gri */
+.durum-dagitim { background-color: #dbeafe; color: #1e40af; }     /* Mavi */
+.durum-iade { background-color: #fee2e2; color: #991b1b; }        /* Kırmızı */
+
+/* --- HEADER & NAVBAR TASARIMI --- */
+.navbar {
+    background-color: #102a43;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.navbar .logo {
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.navbar nav a {
+    color: #bcccdc;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.navbar nav a:hover, .navbar nav a.active {
+    background-color: #243b53;
+    color: #ffffff;
+}
+
+/* --- ANA SAYFA PROJE DETAYLARI KARTI --- */
+.project-details {
+    text-align: center;
+}
+
+.project-details .subtitle {
+    color: #627d98;
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+
+.details-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.details-card h2 {
+    color: #243b53;
+    border-bottom: 2px solid #f0f4f8;
+    padding-bottom: 10px;
+    margin-top: 30px;
+}
+
+.details-card h2:first-child {
+    margin-top: 0;
+}
+
+.details-card ul, .details-card p {
+    line-height: 1.8;
+    color: #334155;
+    font-size: 1.05rem;
 }

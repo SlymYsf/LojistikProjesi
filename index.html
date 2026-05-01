@@ -3,15 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kargo Takip Paneli | Lojistik Otomasyonu</title>
-    <!-- CSS dosyamızı buraya import ediyoruz -->
+    <title>Ana Sayfa | Lojistik Otomasyonu</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Tablo ve arayüz iskeletimizi buraya adım adım öreceğiz -->
+   
+    <header class="navbar">
+        <div class="logo">📦 Lojistik Takip</div>
+        <nav>
+            <a href="index.html" class="active">Ana Sayfa</a>
+            <a href="kargolar.html">Kargo Takip Listesi</a>
+            <a href="seferler.html">Araç Sefer Listesi</a>
+        </nav>
+    </header>
 
-    <!-- JavaScript dosyamızı sayfanın en altına import ediyoruz -->
-    <script src="script.js"></script>
+    
+    <main class="container">
+        <div class="project-details">
+            <h1>Lojistik Otomasyonu Veritabanı Projesi</h1>
+            <p class="subtitle">TBL331 Veritabanı Yönetim Sistemleri - 2025-2026 Bahar Dönem Projesi</p>
+            
+            <div class="details-card">
+                <h2>Proje Özeti</h2>
+                <p>Bu proje, bir lojistik firmasının kargo kabul, araç atama ve sefer takip süreçlerini uçtan uca yönetmek amacıyla geliştirilmiş kapsamlı bir veritabanı otomasyonudur.</p>
+                
+                <h2>Teknik Altyapı</h2>
+                <ul>
+                    <li><strong>Veritabanı:</strong> MS SQL Server (View, Stored Procedure, Trigger, Index ve 5N normalizasyon kuralları)</li>
+                    <li><strong>Arka Uç (Back-end):</strong> Node.js REST API</li>
+                    <li><strong>Ön Uç (Front-end):</strong> HTML5, CSS3, JavaScript (Fetch API)</li>
+                </ul>
+
+                <h2>Geliştirici</h2>
+                <p><strong>Süleyman Yusuf KILINÇ</strong></p>
+                <p><strong>Ömür Can SAYLA</strong></p>
+            </div>
+        </div>
+    </main>
+
 </body>
 </html>

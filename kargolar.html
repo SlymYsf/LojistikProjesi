@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kargo Takip Paneli | Lojistik Otomasyonu</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Üst Navigasyon Menüsü (Header) BURADA BAŞLAR VE BİTER -->
+    <header class="navbar">
+        <div class="logo">📦 Lojistik Takip</div>
+        <nav>
+            <a href="index.html">Ana Sayfa</a>
+            <a href="kargolar.html" class="active">Kargo Takip Listesi</a>
+            <a href="seferler.html">Araç Sefer Listesi</a>
+        </nav>
+    </header> <!-- İŞTE BU KAPANIŞ ETİKETİ ÇOK KRİTİK! -->
+
+    <!-- Ana İçerik (Kargo Tablosu) MENÜNÜN DIŞINDA OLMALI -->
+    <div class="container">
+        <h1>📦 Lojistik Kargo Takip Paneli</h1>
+        
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Takip No</th>
+                        <th>Gönderici Müşteri</th>
+                        <th>Telefon</th>
+                        <th>Ağırlık (Kg)</th>
+                        <th>Durum</th>
+                    </tr>
+                </thead>
+                <tbody id="kargoGovdesi">
+                    <tr>
+                        <td colspan="5" style="text-align: center; padding: 20px;">Veriler sunucudan yükleniyor...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- JavaScript dosyamızı sayfanın en altına import ediyoruz -->
+    <script src="script.js"></script>
+</body>
+</html>

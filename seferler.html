@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Araç Sefer Listesi | Lojistik Otomasyonu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    
+    <header class="navbar">
+        <div class="logo">📦 Lojistik Takip</div>
+        <nav>
+            <a href="index.html">Ana Sayfa</a>
+            <a href="kargolar.html">Kargo Takip Listesi</a>
+            <a href="seferler.html" class="active">Araç Sefer Listesi</a>
+        </nav>
+    </header>
+
+    
+    <div class="container">
+        <h1>🚚 Araç Sefer ve Şoför Tablosu</h1>
+        
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sefer ID</th>
+                        <th>Plaka</th>
+                        <th>Marka</th>
+                        <th>Şoför Bilgisi</th>
+                        <th>Varış Şubesi</th>
+                        <th>Çıkış Tarihi</th>
+                    </tr>
+                </thead>
+                <tbody id="seferGovdesi">
+                    <tr>
+                        <td colspan="6" style="text-align: center; padding: 20px;">Sefer verileri sunucudan yükleniyor...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
