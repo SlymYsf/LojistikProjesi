@@ -18,7 +18,7 @@ Proje, üç katmanlı bir mimari (Client-Server-Database) üzerine inşa edilmi�
 
 ## 5. Veri Tabanı Diyagramı
 <!-- Veritabanından aldığınız ER diyagramı görselinin adını aşağıdaki parantez içine yazınız -->
-![ER Diyagramı](er_diyagrami.png)[cite: 1]
+![ER Diyagramı](er_diyagrami)[cite: 1]
 
 ## 6. Genel Yapı
 Sistem; Müşteriler, Kargolar, Sürücüler, Araçlar, Seferler ve Sistem Logları olmak üzere birbiriyle ilişkili 6 temel tablodan oluşmaktadır. Her tablo, anlamlı test verileriyle doldurulmuş ve veri bütünlüğünü koruyacak Primary Key, Foreign Key, Unique ve Check kısıtlayıcıları ile donatılmıştır[cite: 1]. Kullanıcı dostu arayüz üzerinden kargo listeleri ve araç seferleri anlık olarak (View) izlenebilmekte, sistem üzerinden kargo durum güncellemeleri (Stored Procedure) yapılabilmektedir[cite: 1]. Sistemde yapılan değişiklikler anlık olarak loglanarak (Trigger) güvenlik ve izlenebilirlik maksimize edilmiştir[cite: 1].
