@@ -9,7 +9,7 @@ Proje geliştirme aşamasında, veri tekrarını önlemek ve tutarlılığı sa�
 
 
 ## 3. Akış Şeması
-![Akış Şeması](https://github.com/user-attachments/assets/181a22dc-f6c5-44c4-9e67-f186ceb1b54e)
+![Akış Şeması](https://github.com/user-attachments/assets/ab522407-c457-404c-92db-44fcd585def2)
 
 ## 4. Yazılım Mimarisi
 Proje, üç katmanlı bir mimari (Client-Server-Database) üzerine inşa edilmiştir[cite: 1]:
