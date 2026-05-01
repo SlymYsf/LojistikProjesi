@@ -14,7 +14,7 @@ async function kargolariGetir() {
             else if (kargo.Durum === 'Dağıtıma Çıktı' || kargo.Durum === 'Dagitima Çikti') durumClass = 'durum-dagitim';
             else if (kargo.Durum === 'İade Edildi' || kargo.Durum === 'Iade Edildi') durumClass = 'durum-iade';
 
-            // İŞTE EKSİK OLAN 6. SATIR (BUTON) BURADA!
+            
             const satir = `
                 <tr>
                     <td><strong>${kargo.KargoTakipNo}</strong></td>
@@ -70,7 +70,7 @@ async function seferleriGetir() {
         console.error('Sefer verisi çekme hatası:', error);
         document.getElementById('seferGovdesi').innerHTML = `
             <tr><td colspan="6" style="text-align: center; color: red;">Veriler yüklenemedi!</td></tr>
-        `;
+      `;
     }
 }
 

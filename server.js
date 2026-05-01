@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
     res.send('Lojistik Otomasyonu API Sunucusu Çalışıyor!');
 });
 
-// API: Kargo Takip Listesini Veritabanından Çekip HTML'e Gönderecek Kısım
+// API: Kargo Takip Listesini Veritabanından Çekip HTML'e Gönderecek Kısım Burası
 app.get('/api/kargolar', async (req, res) => {
     try {
         // MS SQL'de yazdığımız o View (Sanal Tablo) yapısından verileri çekiyoruz
