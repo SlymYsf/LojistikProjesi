@@ -28,3 +28,5 @@ Sistem; Müşteriler, Kargolar, Sürücüler, Araçlar, Seferler ve Sistem Logla
 *   MS SQL Server Resmi Dokümantasyonu (T-SQL)
 *   Node.js ve Express.js Dokümantasyonları[
 *   MDN Web Docs (JavaScript Fetch API)
+
+Proje Süleyman Yusuf KILINÇ ve Ömür Can SAYLA tarafından geliştirilmiştir.
